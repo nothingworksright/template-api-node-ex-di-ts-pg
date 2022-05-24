@@ -13,7 +13,7 @@
     "linter": "eslint --ext .js,.jsx,.ts,.tsx src/",
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "start": "API_PORT=1138 DB_USER=dbuser DB_HOST=localhost DB_DATABASE=apidb DB_PASSWORD=dbpass DB_PORT=15432 DB_URL=jdbc:postgresql://localhost:15432/recipedb DB_MIGRATIONS=filesystem:./migrations API_LOG_TARGETS=trace.log+%json,stdout:warn%simple node dist/main.js",
+    "start": "node dist/main.js",
     "develop": "npm run build && npm run start"
   },
   "author": "jmg1138 https://github.com/jmg1138",

@@ -59,12 +59,16 @@ export class Api implements IApi {
     if (!process.env['DB_PASSWORD']) throw new Err(`ENV_DB_PASSWORD`, errEnv.ENV_DB_PASSWORD)
     if (!process.env['DB_PORT']) throw new Err(`ENV_DB_PORT`, errEnv.ENV_DB_PORT)
 
+    if (!process.env['DB_OWNER']) {
+      log.warn(`DB_OWNER is not set. Database migrations are disabled.`)
+    }
     if (!process.env['DB_URL']) {
       log.warn(`DB_URL is not set. Database migrations are disabled.`)
     }
     if (!process.env['DB_MIGRATIONS']) {
       log.warn(`DB_MIGRATIONS is not set. Database migrations are disabled.`)
     }
+
     if (!process.env['API_LOG_TARGETS']) {
       log.warn(`API_LOG_TARGETS is not set. Logging is disabled.`)
     }
