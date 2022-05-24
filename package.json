@@ -1,0 +1,45 @@
+{
+  "name": "generic-api",
+  "version": "0.1.0",
+  "description": "generic api server.",
+  "repository": "",
+  "license": "",
+  "engines": {
+    "node": "16.14.0"
+  },
+  "scripts": {
+    "updates": "echo \"Updating dependencies\" && ncu -u",
+    "prettier": "prettier --write src/**",
+    "linter": "eslint --ext .js,.jsx,.ts,.tsx src/",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "start": "API_PORT=1138 DB_USER=dbuser DB_HOST=localhost DB_DATABASE=apidb DB_PASSWORD=dbpass DB_PORT=15432 DB_URL=jdbc:postgresql://localhost:15432/recipedb DB_MIGRATIONS=filesystem:./migrations API_LOG_TARGETS=trace.log+%json,stdout:warn%simple node dist/main.js",
+    "develop": "npm run build && npm run start"
+  },
+  "author": "jmg1138 https://github.com/jmg1138",
+  "readme": "README.md",
+  "devDependencies": {
+    "eslint": "8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "npm-check-updates": "12.5.10",
+    "prettier": "2.6.2"
+  },
+  "dependencies": {
+    "@types/cors": "2.8.12",
+    "@types/express": "4.17.13",
+    "@types/node": "17.0.30",
+    "@types/pg": "8.6.5",
+    "@typescript-eslint/eslint-plugin": "5.21.0",
+    "@typescript-eslint/parser": "5.21.0",
+    "bs-logger": "0.2.6",
+    "cors": "2.8.5",
+    "express": "4.18.1",
+    "helmet": "5.0.2",
+    "inversify": "^6.0.1",
+    "pg": "8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "4.6.4"
+  },
+  "packageManager": "npm@8.3.1"
+}
