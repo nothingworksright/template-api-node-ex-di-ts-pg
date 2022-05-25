@@ -8,6 +8,8 @@
     "node": "16.14.0"
   },
   "scripts": {
+    "flyway": "wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/7.3.0/flyway-commandline-7.3.0-linux-x64.tar.gz | tar xvz",
+    "migrate": "./flyway-7.3.0/flyway -configFiles=flyway.conf migrate",
     "updates": "echo \"Updating dependencies\" && ncu -u",
     "prettier": "prettier --write src/**",
     "linter": "eslint --ext .js,.jsx,.ts,.tsx src/",
