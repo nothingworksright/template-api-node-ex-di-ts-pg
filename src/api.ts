@@ -53,19 +53,21 @@ export class Api implements IApi {
     }
     if (!process.env['API_PORT']) throw new Err(`ENV_API_PORT`, errEnv.ENV_API_PORT)
 
-    if (!process.env['DB_USER']) throw new Err(`ENV_DB_USER`, errEnv.ENV_DB_USER)
-    if (!process.env['DB_HOST']) throw new Err(`ENV_DB_HOST`, errEnv.ENV_DB_HOST)
-    if (!process.env['DB_DATABASE']) throw new Err(`ENV_DB_DATABASE`, errEnv.ENV_DB_DATABASE)
-    if (!process.env['DB_PASSWORD']) throw new Err(`ENV_DB_PASSWORD`, errEnv.ENV_DB_PASSWORD)
-    if (!process.env['DB_PORT']) throw new Err(`ENV_DB_PORT`, errEnv.ENV_DB_PORT)
+    if (!process.env['API_DB_USER']) throw new Err(`ENV_API_DB_USER`, errEnv.ENV_API_DB_USER)
+    if (!process.env['API_DB_HOST']) throw new Err(`ENV_API_DB_HOST`, errEnv.ENV_API_DB_HOST)
+    if (!process.env['API_DB_DATABASE'])
+      throw new Err(`ENV_API_DB_DATABASE`, errEnv.ENV_API_DB_DATABASE)
+    if (!process.env['API_DB_PASSWORD'])
+      throw new Err(`ENV_API_DB_PASSWORD`, errEnv.ENV_API_DB_PASSWORD)
+    if (!process.env['API_DB_PORT']) throw new Err(`ENV_API_DB_PORT`, errEnv.ENV_API_DB_PORT)
 
-    if (!process.env['DB_OWNER']) {
+    if (!process.env['API_DB_OWNER']) {
       log.warn(`DB_OWNER is not set. Database migrations are disabled.`)
     }
-    if (!process.env['DB_URL']) {
+    if (!process.env['API_DB_URL']) {
       log.warn(`DB_URL is not set. Database migrations are disabled.`)
     }
-    if (!process.env['DB_MIGRATIONS']) {
+    if (!process.env['API_DB_MIGRATIONS']) {
       log.warn(`DB_MIGRATIONS is not set. Database migrations are disabled.`)
     }
 

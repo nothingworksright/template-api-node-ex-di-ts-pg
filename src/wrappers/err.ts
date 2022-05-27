@@ -62,12 +62,12 @@ export class Err extends Error {
 
 // Environment variable error messages.
 export const errEnv = {
-  ENV_API_PORT: `API_PORT is not set. This is required for Expressjs to listen.`,
-  ENV_DB_USER: `DB_USER is not set. This is required for database communication.`,
-  ENV_DB_HOST: `DB_HOST is not set. This is required for database communication.`,
-  ENV_DB_DATABASE: `DB_DATABASE is not set. This is required for database communication.`,
-  ENV_DB_PASSWORD: `DB_PASSWORD is not set. This is required for database communication.`,
-  ENV_DB_PORT: `DB_PORT is not set. This is required for database communication.`,
+  ENV_API_PORT: `Environment variable API_PORT is not set. This is required for Expressjs to listen.`,
+  ENV_API_DB_USER: `Environment variable API_DB_USER is not set. This is required for database communication.`,
+  ENV_API_DB_HOST: `Environment variable API_DB_HOST is not set. This is required for database communication.`,
+  ENV_API_DB_DATABASE: `Environment variable API_DB_DATABASE is not set. This is required for database communication.`,
+  ENV_API_DB_PASSWORD: `Environment variable API_DB_PASSWORD is not set. This is required for database communication.`,
+  ENV_API_DB_PORT: `Environment variable API_DB_PORT is not set. This is required for database communication.`,
 }
 type errEnvType = typeof errEnv
 export type errEnvKeyType = keyof errEnvType
@@ -77,6 +77,12 @@ export type errEnvValueType = errEnvType[keyof errEnvType]
 export const errClient = {
   LASTSTOP_404: `The endpoint you are looking for can't be found.`,
   LASTSTOP_500: `Something went wrong.`,
+  ID_MISMATCH: `The path UUID does not match the request body UUID or token subject UUID.`,
+  UID_INVALID: `The supplied UUID is not a valid v4 UUID.`,
+  EXAMPLE_CREATE: `The example couldn't be created.`,
+  EXAMPLE_READ: `The example couldn't be found.`,
+  EXAMPLE_UPDATE: `The example couldn't be updated.`,
+  EXAMPLE_DELETE: `The example couldn't be deleted.`,
 }
 type errClientType = typeof errClient
 export type errClientKeyType = keyof errClientType

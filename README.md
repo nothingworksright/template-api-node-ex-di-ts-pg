@@ -6,9 +6,13 @@ Written using [Node.js](https://nodejs.org/)/[Express.js](https://expressjs.com/
 
 Data is persisted using [PostgreSQL](https://www.postgresql.org/), without an ORM. Connection to the database is made through the [pg](https://github.com/brianc/node-postgres) library, and all access to data happens via parameterized [stored functions](https://www.postgresql.org/docs/current/xfunc.html). The database owner and the database app user are separate, with proper access levels.  
 
+## Node.js  
+
+Install the correct version of Node.js specified in the package.json file.  
+
 ## Database  
 
-[HashiCorp Vagrant](https://www.vagrantup.com/) is used to make setting up a development database quick and easy. [Download](https://www.vagrantup.com/downloads) and install Vagrant.  
+[HashiCorp Vagrant](https://www.vagrantup.com/) is used to make setting up a development database quick and easy. [Download](https://www.vagrantup.com/downloads) and [install Vagrant](https://learn.hashicorp.com/tutorials/vagrant/getting-started-install?in=vagrant/getting-started).  
 
 From the root directory of this project, run the `vagrant up` command to create and configure a [Vagrant](https://www.vagrantup.com/intro) VM running PostgreSQL. Once the development database is running, run the `npm run flyway` command to download [Flyway](https://flywaydb.org/documentation/). Next, run the `npm run migrate` command to apply database migrations. Migration files are located in `./src/data/migrations`.  
 
@@ -25,17 +29,18 @@ The following environment variables with development values provide an example o
 ```bash
 export NODE_ENV="development"
 export API_PORT="1138"
-export DB_USER="dbuser"
-export DB_OWNER="dbowner"
-export DB_HOST="localhost"
-export DB_DATABASE="apidb"
-export DB_PASSWORD="dbpass"
-export DB_PORT="15432"
-export DB_URL="jdbc:postgresql://localhost:15432/apidb"
-export DB_MIGRATIONS="filesystem:./src/data/migrations"
-export LOG_TARGETS="trace.log+%json,stdout:warn%simple"
-
+export API_DB_USER="dbuser"
+export API_DB_OWNER="dbowner"
+export API_DB_HOST="localhost"
+export API_DB_DATABASE="apidb"
+export API_DB_PASSWORD="dbpass"
+export API_DB_PORT="15432"
+export API_DB_URL="jdbc:postgresql://localhost:15432/apidb"
+export API_DB_MIGRATIONS="filesystem:./src/data/migrations"
+export API_LOG_TARGETS="trace.log+%json,stdout:warn%simple"
 ```
+
+In a linux host system remember to log out and back in after adding environment variables to the `/etc/environment` file.  
 
 ## Install  
 
@@ -64,11 +69,3 @@ Run the `npm run prettier` command to format the source code using the [Prettier
 Run the `npm run linter` command to identify and report [ESLint](https://eslint.org/docs/user-guide/getting-started) code pattern findings.  
 
 Prettier and ESLint can also be run automatically as IDE extensions.  
-
-
-
-
-
-
-
-
