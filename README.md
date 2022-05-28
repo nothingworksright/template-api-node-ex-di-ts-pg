@@ -91,3 +91,7 @@ Run the `npm run prettier` command to format the source code using the [Prettier
 Run the `npm run linter` command to identify and report [ESLint](https://eslint.org/docs/user-guide/getting-started) code pattern findings.  
 
 Prettier and ESLint can also be run automatically as IDE extensions.  
+
+## Not included  
+
+- Authentication and authorization - A session endpoint along with something like a JWT middleware can be added to achieve authentication and authorization.  
