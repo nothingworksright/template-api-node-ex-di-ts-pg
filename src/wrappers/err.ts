@@ -78,7 +78,10 @@ export const errClient = {
   LASTSTOP_404: `The endpoint you are looking for can't be found.`,
   LASTSTOP_500: `Something went wrong.`,
   ID_MISMATCH: `The path UUID does not match the request body UUID or token subject UUID.`,
+  MISSING_REQ: `One or more required fields are missing.`,
   UID_INVALID: `The supplied UUID is not a valid v4 UUID.`,
+  NAME_INVALID: `The name field is not in a valid format. Usename must be 2 to 50 characters in length, and contain only A-Z and 0-9.`,
+  NAME_USED: `The name is already in use. Please change the requested name and try again.`,
   EXAMPLE_CREATE: `The example couldn't be created.`,
   EXAMPLE_READ: `The example couldn't be found.`,
   EXAMPLE_UPDATE: `The example couldn't be updated.`,
@@ -93,6 +96,8 @@ export const isErrClient = (key: string): key is errClientKeyType => {
 
 // Internal-only error messages.
 export const errInternal = {
+  UOW_CLIENT: `UOW error. Pool client is not defined.`,
+  DOMAIN_OBJECT: `Error creating domain object.`,
   UNKNOWN: `Unknown error.`,
 }
 type errInternalType = typeof errInternal
