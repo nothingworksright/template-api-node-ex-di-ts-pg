@@ -22,6 +22,19 @@ npm run flyway
 npm run migrate
 ```
 
+If needed, connect to the development database via `psql` as the user `dbowner`:  
+
+```bash
+PGUSER=dbowner PGPASSWORD=dbpass psql -h localhost -p 15432 apidb
+```
+
+If needed, rollback all database migrations by first connecting to the database via `psql` as the user `dbowner` (instructions above) and then run these SQL commands. After this, all migrations can be applied fresh.  
+
+```sql
+DROP SCHEMA api CASCADE;
+DROP TABLE flyway_schema_history;
+```
+
 ## Env vars  
 
 The following environment variables with development values provide an example of the environment variables required in production. Environment variable values may be set in the `/etc/environment` file on a Linux host system:  
