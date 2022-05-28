@@ -1,6 +1,6 @@
 # Template API (node/express/inversify/typescript/postgres)  
 
-A template for starting a simple API.  
+A template/boilerplate for starting a simple API.  
 
 Written using [Node.js](https://nodejs.org/)/[Express.js](https://expressjs.com/)/[Inversify.js](https://inversify.io/)/[TypeScript](https://www.typescriptlang.org/), following the [Domain-Driven Design](https://khalilstemmler.com/articles/domain-driven-design-intro/) approach.  
 
