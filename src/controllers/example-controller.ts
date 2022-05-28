@@ -70,6 +70,10 @@ export class ExampleController implements IBaseController {
     }
   }
 
+  /**
+   * @example
+      curl --location --request GET 'http://127.0.0.1:1138/v1/examples/00000000-0000-0000-0000-000000000000'
+   */
   private read = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       if (!req.params['id']) {
@@ -102,6 +106,15 @@ export class ExampleController implements IBaseController {
     }
   }
 
+  /**
+   * @example
+      curl --location --request PUT 'http://127.0.0.1:1138/v1/examples/00000000-0000-0000-0000-000000000000' \
+      --header 'Content-Type: application/json' \
+      --data-raw '{
+          "id": "00000000-0000-0000-0000-000000000000",
+          "name": "bar"
+      }'
+   */
   private update = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       // Put request path and body parameters must be present and must match.
@@ -136,6 +149,10 @@ export class ExampleController implements IBaseController {
     }
   }
 
+  /**
+   * @example
+      curl --location --request DELETE 'http://127.0.0.1:1138/v1/examples/00000000-0000-0000-0000-000000000000'
+   */
   private delete = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       if (!req.params['id']) {
