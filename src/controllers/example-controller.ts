@@ -3,7 +3,9 @@
  */
 import { inject, injectable } from 'inversify'
 import type { IBaseController } from './base-controller'
+import { IExampleService } from '../services/example-service'
 import { Router } from 'express'
+import { SYMBOLS } from '../symbols'
 import { fiveHundred } from '../middlewares/laststop'
 import type { NextFunction, Request, Response } from 'express'
 import { httpStatus } from '../data/constants'
@@ -31,6 +33,14 @@ export class ExampleController implements IBaseController {
     this.router.use(fiveHundred) // Error handling.
   }
 
+  /**
+   * @example
+      curl --location --request POST 'http://127.0.0.1:1138/v1/examples' \
+      --header 'Content-Type: application/json' \
+      --data-raw '{
+        "name": "foo"
+      }'
+   */
   private create = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const svcReq = ExampleRequest.create({ ...req.body })

@@ -9,7 +9,9 @@
 /**
  * Database table names.
  */
-export const dbTables = {} as const
+export const dbTables = {
+  EXAMPLES: `api.examples`,
+} as const
 type dbTablesType = typeof dbTables
 export type dbTablesKeyType = keyof dbTablesType
 export type dbTablesValueType = dbTablesType[keyof dbTablesType]

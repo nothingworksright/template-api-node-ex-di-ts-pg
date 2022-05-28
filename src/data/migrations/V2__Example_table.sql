@@ -191,3 +191,37 @@ BEGIN
 END;
 $$;
 COMMENT ON FUNCTION api.examples_count_by_column_value IS 'Function to return the count of example records that match a given column/value';
+
+/**
+ * Function:    api.examples_count_by_column_value_not_id
+ * Author:      Joshua Gray
+ * Description: Function to return the count of example records, other than the specified example id, that match a given column/value.
+ * Parameters:  id UUID - The UUID of the record.
+ *              column_name TEXT - The name of the column to match on.
+ *              column_value TEXT - The value of the column to match on.
+ * Usage:       SELECT * FROM api.examples_count_by_id_column_value('00000000-0000-0000-0000-000000000000', 'name', 'foo');
+ * Returns:     An integer count of the number of matching records found.
+ */
+CREATE OR REPLACE FUNCTION api.examples_count_by_column_value_not_id (
+    id_value     UUID,
+    column_name  TEXT,
+    column_value TEXT
+)
+    RETURNS  integer
+    LANGUAGE PLPGSQL
+    AS
+$$
+DECLARE
+    row_count integer;
+    query     text := 'SELECT COUNT(*) FROM api.examples';
+BEGIN
+    IF id_value IS NOT NULL AND column_name IS NOT NULL THEN
+        query := query || ' WHERE id != $1 AND ' || quote_ident(column_name) || ' = $2';
+    END IF;
+    EXECUTE query
+    USING   id_value, column_value
+    INTO    row_count;
+    RETURN  row_count;
+END;
+$$;
+COMMENT ON FUNCTION api.examples_count_by_column_value_not_id IS 'Function to return the count of example records, other than the specified example id, that match a given column/value.';
