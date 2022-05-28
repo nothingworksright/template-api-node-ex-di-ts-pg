@@ -1,4 +1,4 @@
-# template-api-node-typescript-postgres
+# Template API (node/express/inversify/typescript/postgres)  
 
 A template for starting a simple API.  
 
