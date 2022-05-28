@@ -1,10 +1,19 @@
 # Template API (node/express/inversify/typescript/postgres)  
 
-A template/boilerplate for starting a simple API.  
+A template/boilerplate for starting a simple REST API.  
 
 Written using [Node.js](https://nodejs.org/)/[Express.js](https://expressjs.com/)/[Inversify.js](https://inversify.io/)/[TypeScript](https://www.typescriptlang.org/), following the [Domain-Driven Design](https://khalilstemmler.com/articles/domain-driven-design-intro/) approach.  
 
 Data is persisted using [PostgreSQL](https://www.postgresql.org/), without an ORM. Connection to the database is made through the [pg](https://github.com/brianc/node-postgres) library, and all access to data happens via parameterized [stored functions](https://www.postgresql.org/docs/current/xfunc.html). The database owner and the database app user are separate, with proper access levels.  
+
+## Endpoints  
+
+Example endpoints have been setup.  
+
+- `POST   v1/examples`  
+- `GET    v1/examples/{id}`
+- `PUT    v1/examples/{id}`
+- `DELETE v1/examples/{id}`
 
 ## Node.js  
 
